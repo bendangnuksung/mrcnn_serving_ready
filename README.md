@@ -8,4 +8,16 @@ This repo is to convert [MatterPort Mask_RCNN](https://github.com/matterport/Mas
     ```bash
     python3 main.py
     ```
+    
+#### Custom Config class
+If you have a different config class you can replace the existing config in 'main.py'
+```python
+# main.py
+# Current config load
+config = get_config()
+
+# replace it with your config class
+config = your_custom_config_class
+
+```
 
