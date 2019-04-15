@@ -1,5 +1,8 @@
 # User Define parameters
 
+# Make it True if you want to use the provided coco weights
+is_coco = False
+
 # keras model directory path
 MODEL_DIR = '/keras_model/'
 

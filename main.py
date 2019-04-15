@@ -11,6 +11,21 @@ sess = tf.Session()
 K.set_session(sess)
 
 
+def get_config():
+    if is_coco:
+        import coco
+        class InferenceConfig(coco.CocoConfig):
+            GPU_COUNT = 1
+            IMAGES_PER_GPU = 1
+
+        config = InferenceConfig()
+
+    else:
+        config = mask_config(NUMBER_OF_CLASSES)
+
+    return config
+
+
 def freeze_session(session, keep_var_names=None, output_names=None, clear_devices=True):
     graph = sess.graph
 
@@ -82,8 +97,13 @@ def make_serving_ready(model_path, save_serve_path, version_number):
     print("*" * 80)
 
 
+# Load Mask RCNN config
+# you can also load your own config in here.
+# config = your_custom_config_class
+config = get_config()
+
+
 # LOAD MODEL
-config = mask_config(NUMBER_OF_CLASSES)
 model = MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=config)
 model.load_weights(H5_WEIGHT_PATH, by_name=True)
 
