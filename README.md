@@ -1,5 +1,5 @@
 ### MRCNN Model conversion
-This repo is to convert [MatterPort Mask_RCNN](https://github.com/matterport/Mask_RCNN) keras model to -Frozen PB graph and then to Serving Model (saved_model) for tensorflow model serving.
+Script to convert [MatterPort Mask_RCNN](https://github.com/matterport/Mask_RCNN) Keras model to Tensorflow Frozen Graph and Tensorflow Serving Model.
 
 
 ### How to Run
@@ -9,7 +9,7 @@ This repo is to convert [MatterPort Mask_RCNN](https://github.com/matterport/Mas
     python3 main.py
     ```
     
-#### Custom Config class
+#### For Custom Config class
 If you have a different config class you can replace the existing config in 'main.py'
 ```python
 # main.py
@@ -20,4 +20,3 @@ config = get_config()
 config = your_custom_config_class
 
 ```
-
