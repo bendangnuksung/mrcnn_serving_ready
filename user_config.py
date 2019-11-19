@@ -1,13 +1,12 @@
+import os
 # User Define parameters
 
 # Make it True if you want to use the provided coco weights
 is_coco = False
 
-# keras model directory path
-MODEL_DIR = '/keras_model/'
-
 # keras model file path
 H5_WEIGHT_PATH = '/keras_model/mask_rcnn_tags_0001.h5'
+MODEL_DIR = os.path.dirname(H5_WEIGHT_PATH)
 
 # Path where the Frozen PB will be save
 PATH_TO_SAVE_FROZEN_PB = '/frozen_model/'
