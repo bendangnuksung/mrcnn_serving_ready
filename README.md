@@ -37,6 +37,7 @@ Follow once you finish converting it to a `saved_model` using the above code
     export PYTHONPATH=$PYTHONPATH:$pwd
     # Run Inference
     python3 inferencing/saved_model_inference.py -p test_image/monalisa.jpg
-    
- #### Please send a PR if you know to inference using TF model server RESTAPI.
     ```
+    
+ #### Please do send a PR if you know to inference using TF model server RESTAPI.
+    
