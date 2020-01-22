@@ -1,5 +1,6 @@
 ### MRCNN Model conversion
-Script to convert [MatterPort Mask_RCNN](https://github.com/matterport/Mask_RCNN) Keras model to Tensorflow Frozen Graph and Tensorflow Serving Model.
+Script to convert [MatterPort Mask_RCNN](https://github.com/matterport/Mask_RCNN) Keras model to Tensorflow Frozen Graph and Tensorflow Serving Model.  
+Plus inferencing with GRPC or RESTAPI using Tensorflow Model Server. 
 
 
 ### How to Run
