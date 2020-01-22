@@ -11,9 +11,11 @@ MY_INFERENCE_CONFIG = coco_config
 
 
 # Tensorflow Model server variable
-HOST_NO = 'localhost'
-PORT_NO = 8500
+ADDRESS = 'localhost'
+PORT_NO_GRPC = 8500
+PORT_NO_RESTAPI = 8501
 MODEL_NAME = 'mask'
+REST_API_URL = "http://%s:%s/v1/models/%s:predict" % (ADDRESS, PORT_NO_RESTAPI, MODEL_NAME)
 
 
 # TF variable name

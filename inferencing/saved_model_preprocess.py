@@ -205,8 +205,23 @@ class ForwardModel:
 
         return result_dict
 
-    def result_to_dict(self, images, molded_images, windows, result_dict):
-        result_dict = self.format_output(result_dict)
+    def format_restapi_output(self, result_dict):
+        mask = result_dict[saved_model_config.OUTPUT_MASK]
+        mask = np.array(mask)
+        mask = np.expand_dims(mask, axis=0)
+
+        detection = result_dict[saved_model_config.OUTPUT_DETECTION]
+        detection = np.array(detection)
+        detection = np.expand_dims(detection, axis=0)
+
+        result_dict = {'detection': detection, 'mask': mask}
+        return result_dict
+
+    def result_to_dict(self, images, molded_images, windows, result_dict, is_restapi=False):
+        if is_restapi:
+            result_dict = self.format_restapi_output(result_dict)
+        else:
+            result_dict = self.format_output(result_dict)
         results = []
         for i, image in enumerate(images):
             # print('detection len',len(result_dict['detection']))
