@@ -2,7 +2,7 @@ import numpy as np
 
 
 class mask_config():
-    def __init__(self, NUMBER_OF_CLASSES):
+    def __init__(self, NUMBER_OF_CLASSES=80):
         self.NAME = "tags"
         self.IMAGES_PER_GPU = 2
         self.NUM_CLASSES = 1 + NUMBER_OF_CLASSES  # Background + tags
@@ -65,3 +65,12 @@ class mask_config():
         # Image meta data length
         # See compose_image_meta() for details
         self.IMAGE_META_SIZE = 1 + 3 + 3 + 4 + 1 + self.NUM_CLASSES
+        
+
+class CocoConfig(mask_config):
+    """Configuration for training on MS COCO.
+    Derives from the base Config class and overrides values specific
+    to the COCO dataset.
+    """
+    # Give the configuration a recognizable name
+    NAME = "coco"
