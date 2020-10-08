@@ -4,7 +4,7 @@ import keras.backend as K
 from tensorflow.python.saved_model import signature_constants
 from tensorflow.python.saved_model import tag_constants
 import os
-from config import mask_config
+from config import mask_config, CocoConfig
 from model import MaskRCNN
 
 sess = tf.Session()
@@ -13,8 +13,7 @@ K.set_session(sess)
 
 def get_config():
     if is_coco:
-        import coco
-        class InferenceConfig(coco.CocoConfig):
+        class InferenceConfig(CocoConfig):
             GPU_COUNT = 1
             IMAGES_PER_GPU = 1
 
