@@ -1,8 +1,8 @@
 # Your Inference Config Class
 # Replace your own config
 # MY_INFERENCE_CONFIG = YOUR_CONFIG_CLASS
-import coco
-class InferenceConfig(coco.CocoConfig):
+from config import CocoConfig
+class InferenceConfig(CocoConfig):
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
 coco_config = InferenceConfig()
